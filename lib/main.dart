@@ -1,4 +1,4 @@
-
+import 'package:appointment_app/pages/appointments.dart';
 import 'package:appointment_app/pages/company_login.dart';
 import 'package:appointment_app/pages/customer_home.dart';
 import 'package:appointment_app/pages/customer_login.dart';
@@ -12,6 +12,7 @@ void main() => runApp(MaterialApp(
     '/company_login':(context) => const CompanyLogin(),
     '/customer_login':(context) => const CustomerLogin(),
     '/customer_home':(context) => const CustomerHome(),
+    '/add_appointments':(context) => const Appointments(),
   },
 ));
 
