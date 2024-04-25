@@ -95,17 +95,20 @@ List<Users> userRetrieve () {
     {
       'name' : "Hardik",
       'pwd' : "HelloWorld",
-      'isCustomer': 1
+      'isCustomer': 1,
+      'ID': '01'
     },
     {
       'name' : "Sahil",
       'pwd' : "HelloWorld",
-      'isCustomer': 0
+      'isCustomer': 0,
+      'ID': '02'
     },
     {
       'name' : "Harsh",
       'pwd' : "HelloWorld",
-      'isCustomer': 1
+      'isCustomer': 1,
+      'ID': '03'
     },
   ];
   return (response).map((e) => Users.fromMap(e)).toList();

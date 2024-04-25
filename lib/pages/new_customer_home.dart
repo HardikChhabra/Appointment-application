@@ -10,10 +10,16 @@ class NewCustomer extends StatefulWidget {
 }
 
 class _NewCustomerState extends State<NewCustomer> {
+
+  Map? userIdMap = {};
+  String? userId;
+
   @override
   Widget build(BuildContext context) {
     double pageHeight = MediaQuery.of(context).size.height;
     List<Service> services = serviceBuilder();
+    userIdMap = ModalRoute.of(context)?.settings.arguments as Map;
+    userId = userIdMap!['userID'];
 
     return Scaffold(
       backgroundColor: Colors.grey.shade300,
@@ -28,7 +34,12 @@ class _NewCustomerState extends State<NewCustomer> {
             ),
             backgroundColor: Colors.white.withRed(18).withGreen(56).withBlue(95).withOpacity(1),
             actions: [
-              IconButton(onPressed: () {Navigator.pushNamed(context, '/add_appointments');}, icon: const Icon(Icons.notifications, color: Colors.white,))
+              IconButton(onPressed: () {
+                Navigator.pushNamed(context, '/notifications', arguments: {
+                  'userID': userId
+                });},
+                icon: const Icon(Icons.notifications, color: Colors.white,),
+              )
             ],
             leading: GestureDetector(
               child: const Icon(Icons.arrow_back_ios_new, color: Colors.white,),

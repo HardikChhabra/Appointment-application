@@ -192,7 +192,9 @@ class _LoginState extends State<Login> {
                   bool data = user == "Customer"? true:false;
                   Users currentUser = Users(userName: name.text, pwd: pwd.text, isCustomer: data);
                   if(currentUser.checkUser(users)){
-                    Navigator.pushNamed(context, '/$user');
+                    Navigator.pushNamed(context, '/$user', arguments: {
+                      'userID': currentUser.userID
+                    });
                   }
                   else {
                     openAnimatedDialog(context);
@@ -245,17 +247,19 @@ class Users {
   String userName;
   String pwd;
   bool isCustomer;
+  String? userID;
 
-  Users({required this.userName, required this.pwd, required this.isCustomer});
+  Users({required this.userName, required this.pwd, required this.isCustomer, this.userID});
 
   factory Users.fromMap(Map<String, dynamic> map) {
     bool data = map['isCustomer'] == 1? true: false;
-    return Users(userName: map['name'] as String, pwd: map['pwd'] as String, isCustomer: data);
+    return Users(userName: map['name'] as String, pwd: map['pwd'] as String, isCustomer: data, userID: map['ID']);
   }
 
   bool checkUser(List<Users> users) {
     for(Users user in users) {
       if(user.userName == userName && user.pwd == pwd && user.isCustomer == isCustomer) {
+        userID = user.userID;
         return true;
       }
       else{
