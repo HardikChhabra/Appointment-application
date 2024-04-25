@@ -1,3 +1,4 @@
+import 'package:appointment_app/pages/service.dart';
 import 'package:flutter/material.dart';
 
 class Appointments extends StatefulWidget {
@@ -13,7 +14,39 @@ class _AppointmentsState extends State<Appointments> {
   @override
   Widget build(BuildContext context) {
     data = data!.isNotEmpty ?data: ModalRoute.of(context)?.settings.arguments as Map;
-    return const Placeholder();
+    String serviceInUse = data?['serviceName'];
+    List<AvailableCompanies> companies = companyBuilder(serviceInUse);
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            const SizedBox(height: 50,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const CircleAvatar(),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.notifications,
+                  ),
+                )
+              ],//[]
+            ),
+            const SizedBox(height: 120,),
+            SizedBox(
+              height: 700,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  children: companies.map<Widget>((e) {return Container(child: e.companyCard(),);}).toList(),
+                ),
+              ),
+            )
+          ],//[]
+        ),
+      ),
+    );
   }
 }
 
@@ -25,6 +58,10 @@ class AvailableCompanies {
   int duration;
 
   AvailableCompanies({required this.companyName, required this.rating, required this.price, required this.duration });
+
+  factory AvailableCompanies.fromMap(Map<String, dynamic> map) {
+    return AvailableCompanies(companyName: map['name'] as String, rating: map['rating'], price: map['price'], duration: map['duration']);
+  }
 
   Widget companyCard () {
     return GestureDetector(

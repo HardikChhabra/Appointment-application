@@ -1,3 +1,4 @@
+import 'package:appointment_app/pages/service.dart';
 import 'package:flutter/material.dart';
 
 class CustomerHome extends StatefulWidget {
@@ -11,14 +12,8 @@ class _CustomerHomeState extends State<CustomerHome> {
 
   @override
   Widget build(BuildContext context) {
-    Service s1 = Service(serviceName: "Application Development", avgRating: 3, avgPrice: 30000);
-    Service s2 = Service(serviceName: "API", avgRating: 4, avgPrice: 20000);
-    Service s3 = Service(serviceName: "Cloud Computing", avgRating: 3, avgPrice: 25000);
-    Service s4 = Service(serviceName: "Networking", avgRating: 5, avgPrice: 25000);
-    Service s5 = Service(serviceName: "Security", avgRating: 2, avgPrice: 10000);
-    Service s6 = Service(serviceName: "Wifi", avgRating: 5, avgPrice: 1000);
-    Service s7 = Service(serviceName: "Hosting", avgRating: 4, avgPrice: 10000);
-    List<Service> services = [s1,s2,s3,s4,s5,s6,s7];
+    List<Service> services = serviceBuilder();
+
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -60,6 +55,11 @@ class Service {
   int avgPrice;
 
   Service({required this.serviceName, required this.avgRating, required this.avgPrice});
+
+  factory Service.fromMap(Map<String, dynamic> map) {
+    return Service(serviceName: map['service'] as String, avgRating: map['rating'], avgPrice: map['price']);
+  }
+
   Widget serviceCard (context) {
     return GestureDetector(
       onTap: () {

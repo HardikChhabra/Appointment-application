@@ -46,7 +46,7 @@ class _CustomerLoginState extends State<CustomerLogin> {
       ),
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(2.0, 250.0, 2.0, 0.0),
+        padding: const EdgeInsets.fromLTRB(2.0, 150.0, 2.0, 0.0),
         child: Column(
           children: [
             Padding(
