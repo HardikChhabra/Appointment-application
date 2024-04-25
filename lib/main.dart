@@ -1,6 +1,6 @@
 import 'package:appointment_app/pages/appointments.dart';
 import 'package:appointment_app/pages/company_home.dart';
-import 'package:appointment_app/pages/customer_home.dart';
+import 'package:appointment_app/pages/new_customer_home.dart';
 import 'package:appointment_app/pages/new_login.dart';
 
 import 'package:flutter/material.dart';
@@ -10,7 +10,7 @@ void main() async {
     routes: {
       '/':(context) => const Login(),
       '/Company':(context) => const CompanyHome(),
-      '/Customer':(context) => const CustomerHome(),
+      '/Customer':(context) => const NewCustomer(),
       '/add_appointments':(context) => const Appointments(),
     },
   ));

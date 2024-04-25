@@ -1,6 +1,6 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:appointment_app/pages/customer_home.dart';
+import 'package:appointment_app/pages/new_customer_home.dart';
 
 import 'appointments.dart';
 import 'new_login.dart';
