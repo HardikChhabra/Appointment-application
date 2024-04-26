@@ -1,3 +1,4 @@
+import 'package:appointment_app/pages/user_notifications.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:appointment_app/pages/new_customer_home.dart';
@@ -112,4 +113,30 @@ List<Users> userRetrieve () {
     },
   ];
   return (response).map((e) => Users.fromMap(e)).toList();
+}
+
+List<Notify> notificationRetrieve (String userID) {
+  List<Map<String, dynamic>> response = [
+    {
+      'comp_name': "Google",
+      'service': "API"
+    },
+    {
+      'comp_name': "MicroSoft",
+      'service': "Application Development"
+    },
+    {
+      'comp_name': "Google",
+      'service': "Networking"
+    },
+    {
+      'comp_name': "Amazon",
+      'service': "Cloud"
+    },
+    {
+      'comp_name': "Google",
+      'service': "API"
+    }
+  ];
+  return (response).map((e) => Notify.fromMap(e)).toList();
 }

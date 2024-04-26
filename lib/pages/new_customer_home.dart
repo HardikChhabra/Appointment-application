@@ -36,17 +36,11 @@ class _NewCustomerState extends State<NewCustomer> {
             actions: [
               IconButton(onPressed: () {
                 Navigator.pushNamed(context, '/notifications', arguments: {
-                  'userID': userId
+                  'userID': userId, 'listNotifications': notificationRetrieve(userId!)
                 });},
                 icon: const Icon(Icons.notifications, color: Colors.white,),
               )
             ],
-            leading: GestureDetector(
-              child: const Icon(Icons.arrow_back_ios_new, color: Colors.white,),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
             expandedHeight: ((35*pageHeight)/100),
             collapsedHeight: ((10*pageHeight)/100),
             flexibleSpace: FlexibleSpaceBar(
