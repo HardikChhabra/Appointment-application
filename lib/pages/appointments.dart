@@ -76,23 +76,18 @@ class _AppointmentsState extends State<Appointments> {
             ),
           ),
           SliverToBoxAdapter(
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.grey.shade300
-              ),
-              child: Column(
-                children: companies.map<Widget>((e) {return Container(child: e.companyCard(
-                        (){
-                      offers.add(e);
-                      e.isEnabled = true;
-                    },
-                        () {
-                      offers.remove(e);
-                      e.isEnabled = false;
-                    },
-                    pageWidth
-                ),);}).toList(),
-              ),
+            child: Column(
+              children: companies.map<Widget>((e) {return Container(child: e.companyCard(
+                      (){
+                    offers.add(e);
+                    e.isEnabled = true;
+                  },
+                      () {
+                    offers.remove(e);
+                    e.isEnabled = false;
+                  },
+                  pageWidth
+              ),);}).toList(),
             ),
           ),
         ],
@@ -131,78 +126,75 @@ class AvailableCompanies {
           padding: EdgeInsets.all(pageWidth*0.01),
           child: GestureDetector(
             onTap: isEnabled?removeFromList:addToList,
-            child: Card(
-              color: Colors.grey.shade300,
-              child: Column(
-                children: [
-                  Text(
-                    companyName,
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 40,
-                      fontWeight: FontWeight.w300,
-                      letterSpacing: 2.0,
-                    ),
+            child: Column(
+              children: [
+                Text(
+                  companyName,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 40,
+                    fontWeight: FontWeight.w300,
+                    letterSpacing: 2.0,
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(pageWidth*0.002),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            const Icon(Icons.star, color: Colors.black,),
-                            Padding(
-                              padding: EdgeInsets.all(pageWidth*0.002),
-                              child: Text(
-                                rating.toString(),
-                                style: TextStyle(
-                                  color: Colors.grey.shade800,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w300,
-                                ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(pageWidth*0.002),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          const Icon(Icons.star, color: Colors.black,),
+                          Padding(
+                            padding: EdgeInsets.all(pageWidth*0.002),
+                            child: Text(
+                              rating.toString(),
+                              style: TextStyle(
+                                color: Colors.grey.shade800,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w300,
                               ),
                             ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            const Icon(Icons.money, color: Colors.black,),
-                            Padding(
-                              padding: EdgeInsets.all(pageWidth*0.002),
-                              child: Text(
-                                price.toString(),
-                                style: TextStyle(
-                                  color: Colors.grey.shade800,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w300,
-                                ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          const Icon(Icons.money, color: Colors.black,),
+                          Padding(
+                            padding: EdgeInsets.all(pageWidth*0.002),
+                            child: Text(
+                              price.toString(),
+                              style: TextStyle(
+                                color: Colors.grey.shade800,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w300,
                               ),
                             ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            const Icon(Icons.schedule, color: Colors.black,),
-                            Padding(
-                              padding: EdgeInsets.all(pageWidth*0.002),
-                              child: Text(
-                                duration.toString(),
-                                style: TextStyle(
-                                  color: Colors.grey.shade800,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w300,
-                                ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          const Icon(Icons.schedule, color: Colors.black,),
+                          Padding(
+                            padding: EdgeInsets.all(pageWidth*0.002),
+                            child: Text(
+                              duration.toString(),
+                              style: TextStyle(
+                                color: Colors.grey.shade800,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w300,
                               ),
                             ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                )
+              ],
             ),
           ),
         ),

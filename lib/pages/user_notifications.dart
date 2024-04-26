@@ -17,7 +17,51 @@ class _UserNotificationsState extends State<UserNotifications> {
     data = ModalRoute.of(context)?.settings.arguments as Map;
     List<Notify> notifications = data!['listNotifications'];
     if(notifications.isEmpty){
-      return const Placeholder();
+      return Scaffold(
+        backgroundColor: Colors.grey.shade300,
+        body: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              pinned: true,
+              stretch: true,
+              floating: false,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(bottomRight: Radius.circular(15), bottomLeft: Radius.circular(15)),
+              ),
+              backgroundColor: Colors.white.withRed(18).withGreen(56).withBlue(95).withOpacity(1),
+              expandedHeight: ((35*pageHeight)/100),
+              collapsedHeight: ((10*pageHeight)/100),
+              flexibleSpace: FlexibleSpaceBar(
+                title: const Text(
+                  'Notifications',
+                  style: TextStyle(
+                    fontSize: 35,
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 2.0,
+                    color: Colors.white,
+                  ),
+                ),
+                background: ColoredBox(
+                  color: Colors.white.withRed(18).withGreen(56).withBlue(95).withOpacity(1),
+                ),
+              ),
+            ),
+            const SliverToBoxAdapter(
+              child: Center(
+                child: Text(
+                  "No notifications\nyet...",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 40,
+                    fontWeight: FontWeight.w300,
+                    letterSpacing: 2.0
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+      );
     }
     else{
       return Scaffold(
@@ -38,7 +82,7 @@ class _UserNotificationsState extends State<UserNotifications> {
                   title: const Text(
                     'Notifications',
                     style: TextStyle(
-                      fontSize: 40,
+                      fontSize: 35,
                       fontWeight: FontWeight.w400,
                       letterSpacing: 2.0,
                       color: Colors.white,

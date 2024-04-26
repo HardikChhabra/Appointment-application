@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:appointment_app/pages/new_customer_home.dart';
 
 import 'appointments.dart';
+import 'company_home.dart';
 import 'new_login.dart';
 
 void initialiseSupabase () async {
@@ -139,4 +140,40 @@ List<Notify> notificationRetrieve (String userID) {
     }
   ];
   return (response).map((e) => Notify.fromMap(e)).toList();
+}
+
+List<Appointment> appointmentRetrieve(String userID) {
+  List<Map<String, dynamic>> response = [
+    {
+      'customer_name': 'Hardik',
+      'customer_location' : 'Rohini, Delhi',
+      'service': 'API',
+      'isValid': true
+    },
+    {
+      'customer_name': 'Sahil',
+      'customer_location' : 'Mangolpuri, Delhi',
+      'service': 'Application Development',
+      'isValid': true
+    },
+    {
+      'customer_name': 'Harsh',
+      'customer_location' : 'Rohini, Delhi',
+      'service': 'Networking',
+      'isValid': false
+    },
+    {
+      'customer_name': 'Hardik',
+      'customer_location' : 'Rohini, Delhi',
+      'service': 'Cloud',
+      'isValid': true
+    },
+    {
+      'customer_name': 'Sahil',
+      'customer_location' : 'Kanhaiya Nagar, Delhi',
+      'service': 'Security',
+      'isValid': true
+    }
+  ];
+  return response.map((e)=> Appointment.fromMap(e)).toList();
 }
