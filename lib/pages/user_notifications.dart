@@ -82,7 +82,7 @@ class _UserNotificationsState extends State<UserNotifications> {
                   title: const Text(
                     'Notifications',
                     style: TextStyle(
-                      fontSize: 35,
+                      fontSize: 25,
                       fontWeight: FontWeight.w400,
                       letterSpacing: 2.0,
                       color: Colors.white,

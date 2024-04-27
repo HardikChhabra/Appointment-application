@@ -40,7 +40,7 @@ class _CompanyHomeState extends State<CompanyHome> {
               title: const Text(
                 'Appointments',
                 style: TextStyle(
-                  fontSize: 30,
+                  fontSize: 25,
                   fontWeight: FontWeight.w400,
                   letterSpacing: 2.0,
                   color: Colors.white,
