@@ -17,5 +17,6 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 =======
 # Appointment-application
-A basic application developed in Flutter to make appointments
+A basic application developed in Flutter to make appointments.
+You can sign in as a customer or a company. As a customer you can make offers to multiple companies and as a company you can accept and reject offers.
 >>>>>>> origin/master
